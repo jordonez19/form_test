@@ -1,12 +1,19 @@
-<?php
-
+    <?php
+//Variables
 $nombre = $input = $email = $mobile = $comments = "";
 $nombreErr = $inputErr = $emailErr = $mobileErr = $commentsErr = "";
 $espacio = "";
 $espacioErr = "";
+//input Method
+function test_input($test){
+    $test=htmlspecialchars($test);
+    $test=trim($test);
+    $test=stripslashes($test);
+    return $test;
+}
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-
+    //name
     if(empty($_POST["name"])){
         $espacio = "Por favor llenar los espacios en blanco";
     }else{
@@ -16,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             $espacioErr= "Por favor revisar los espacios con *";
         }
     }
-
+    //email
     if(empty($_POST["email"])){
         $espacio = "Por favor llenar los espacios en blanco";
     }else{
@@ -26,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             $espacioErr= "Por favor revisar los espacios con *";
         }
     }
-
+    //mobile
     if(empty($_POST["mobile"])){
         $espacio = "Por favor llenar los espacios en blanco";
     }else{
@@ -36,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             $espacioErr= "Por favor revisar los espacios con *";
         }
     }
-
+    //input
     if(empty($_POST["input"])){
             $espacio = "Por favor llenar los espacios en blanco";
     }else{
@@ -45,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             $inputErr = "*"."<br>";
         }
     }
-
+    //comments
     if(empty($_POST["comments"])){
         $espacio = "Por favor llenar los espacios en blanco";
     }else{
@@ -56,14 +63,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         }
     }
 }
-
-function test_input($test){
-    $test=htmlspecialchars($test);
-    $test=trim($test);
-    $test=stripslashes($test);
-    return $test;
-}
-
 
 ?>
 
